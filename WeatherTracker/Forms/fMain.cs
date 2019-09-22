@@ -24,16 +24,17 @@ namespace WeatherTracker.Forms
         //    WeatherTracker.Classes.Weather.DistanceUnits.Kilometeres, WeatherTracker.Classes.Weather.PressureUnits.Millibars,
         //    WeatherTracker.Classes.Weather.SpeedUnits.KilometersPerHour);
 
-        Weather weather = new Weather();
-        //RootObject rootObject = new RootObject();
-        
+        RootObject weatherData = new RootObject();
+
+
         public fMain() {
             InitializeComponent();
 
-            RootObject rootObject = weather.GetCityWeather("Thessaloniki");
+            Weather weather = new Weather();
 
-            string main = rootObject.weatherConditions[0].main;
-            string description = rootObject.weatherConditions[0].description;
+            weatherData = weather.GetCityWeather("Thessaloniki");
+
+            UpdateUI();
 
             //splashScreen.Show();
             Application.DoEvents();
@@ -55,6 +56,15 @@ namespace WeatherTracker.Forms
             if ( this.WindowState == FormWindowState.Minimized )
                 this.WindowState = FormWindowState.Normal;
             this.Visible = true;
+        }
+
+        /// <summary>
+        /// Set values to UI elements.
+        /// </summary>
+        private void UpdateUI()
+        {
+            lblLocation.Text = $"Location: {weatherData.sys.country}, {weatherData.name}";
+            lblTemperature.Text = $"{weatherData.main.temp:#.#}";
         }
 
         //private void SetWeatherValues() {

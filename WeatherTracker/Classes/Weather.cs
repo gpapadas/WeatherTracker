@@ -8,9 +8,6 @@ using Newtonsoft.Json;
 
 namespace WeatherTracker.Classes
 {
-    /// <summary>
-    /// Class to manage Yahoo! Weather Forecast information
-    /// </summary>
     public class Weather
     {
         private const string apiKey = Api.API_KEY; // Your API key here

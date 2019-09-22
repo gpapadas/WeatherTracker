@@ -64,6 +64,7 @@ namespace WeatherTracker.Forms
             this.lblHumidity = new System.Windows.Forms.Label();
             this.labelControl15 = new System.Windows.Forms.Label();
             this.grpConditions = new System.Windows.Forms.GroupBox();
+            this.lblTemperature = new System.Windows.Forms.Label();
             this.labelControl17 = new System.Windows.Forms.Label();
             this.labelControl19 = new System.Windows.Forms.Label();
             this.lblCode = new System.Windows.Forms.Label();
@@ -103,12 +104,11 @@ namespace WeatherTracker.Forms
             this.labelControl37 = new System.Windows.Forms.Label();
             this.lblForecast2Date = new System.Windows.Forms.Label();
             this.labelControl39 = new System.Windows.Forms.Label();
-            this.lblTemperature = new System.Windows.Forms.Label();
-            this.xtraTabControl1 = new System.Windows.Forms.TabControl();
             this.labelControl16 = new System.Windows.Forms.Label();
             this.labelControl3 = new System.Windows.Forms.Label();
             this.lblChill = new System.Windows.Forms.Label();
             this.labeControl3 = new System.Windows.Forms.Label();
+            this.xtraTabControl1 = new System.Windows.Forms.TabControl();
             this.cmsNotify.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEditWeatherCondition)).BeginInit();
             this.grpUnits.SuspendLayout();
@@ -228,7 +228,7 @@ namespace WeatherTracker.Forms
             this.grpUnits.Controls.Add(this.labelControl2);
             this.grpUnits.Controls.Add(this.lblUnitsTemperature);
             this.grpUnits.Controls.Add(this.labelControl1);
-            this.grpUnits.Location = new System.Drawing.Point(498, 52);
+            this.grpUnits.Location = new System.Drawing.Point(466, 39);
             this.grpUnits.Name = "grpUnits";
             this.grpUnits.Size = new System.Drawing.Size(199, 105);
             this.grpUnits.TabIndex = 3;
@@ -305,7 +305,7 @@ namespace WeatherTracker.Forms
             this.grpWind.Controls.Add(this.lblUnitSpeed);
             this.grpWind.Controls.Add(this.labelControl10);
             this.grpWind.Controls.Add(this.labelControl12);
-            this.grpWind.Location = new System.Drawing.Point(703, 52);
+            this.grpWind.Location = new System.Drawing.Point(733, 52);
             this.grpWind.Name = "grpWind";
             this.grpWind.Size = new System.Drawing.Size(166, 105);
             this.grpWind.TabIndex = 8;
@@ -355,7 +355,7 @@ namespace WeatherTracker.Forms
             // grpAtmosphere
             // 
             this.grpAtmosphere.Controls.Add(this.labelControl6);
-            this.grpAtmosphere.Location = new System.Drawing.Point(708, 420);
+            this.grpAtmosphere.Location = new System.Drawing.Point(711, 420);
             this.grpAtmosphere.Name = "grpAtmosphere";
             this.grpAtmosphere.Size = new System.Drawing.Size(186, 105);
             this.grpAtmosphere.TabIndex = 8;
@@ -428,55 +428,65 @@ namespace WeatherTracker.Forms
             // 
             // grpConditions
             // 
+            this.grpConditions.Controls.Add(this.lblTemperature);
             this.grpConditions.Controls.Add(this.labelControl17);
             this.grpConditions.Controls.Add(this.labelControl19);
             this.grpConditions.Controls.Add(this.lblCode);
             this.grpConditions.Controls.Add(this.labelControl21);
             this.grpConditions.Controls.Add(this.labelControl23);
-            this.grpConditions.Location = new System.Drawing.Point(498, 163);
+            this.grpConditions.Location = new System.Drawing.Point(404, 171);
             this.grpConditions.Name = "grpConditions";
-            this.grpConditions.Size = new System.Drawing.Size(199, 105);
+            this.grpConditions.Size = new System.Drawing.Size(293, 113);
             this.grpConditions.TabIndex = 9;
             this.grpConditions.TabStop = false;
             this.grpConditions.Text = "Καιρικές Συνθήκες";
             // 
+            // lblTemperature
+            // 
+            this.lblTemperature.AutoSize = true;
+            this.lblTemperature.Location = new System.Drawing.Point(99, 69);
+            this.lblTemperature.Name = "lblTemperature";
+            this.lblTemperature.Size = new System.Drawing.Size(77, 13);
+            this.lblTemperature.TabIndex = 15;
+            this.lblTemperature.Text = "lblTemperature";
+            // 
             // labelControl17
             // 
-            this.labelControl17.Location = new System.Drawing.Point(22, 81);
+            this.labelControl17.Location = new System.Drawing.Point(15, 90);
             this.labelControl17.Name = "labelControl17";
-            this.labelControl17.Size = new System.Drawing.Size(60, 13);
+            this.labelControl17.Size = new System.Drawing.Size(83, 13);
             this.labelControl17.TabIndex = 6;
             this.labelControl17.Text = "Ημερομηνία:";
             // 
             // labelControl19
             // 
-            this.labelControl19.Location = new System.Drawing.Point(15, 65);
+            this.labelControl19.Location = new System.Drawing.Point(15, 69);
             this.labelControl19.Name = "labelControl19";
-            this.labelControl19.Size = new System.Drawing.Size(67, 13);
+            this.labelControl19.Size = new System.Drawing.Size(83, 13);
             this.labelControl19.TabIndex = 4;
             this.labelControl19.Text = "Θερμοκρασία:";
             // 
             // lblCode
             // 
-            this.lblCode.Location = new System.Drawing.Point(88, 46);
+            this.lblCode.Location = new System.Drawing.Point(99, 48);
             this.lblCode.Name = "lblCode";
-            this.lblCode.Size = new System.Drawing.Size(35, 13);
+            this.lblCode.Size = new System.Drawing.Size(58, 13);
             this.lblCode.TabIndex = 3;
             this.lblCode.Text = "lblCode";
             // 
             // labelControl21
             // 
-            this.labelControl21.Location = new System.Drawing.Point(39, 46);
+            this.labelControl21.Location = new System.Drawing.Point(15, 48);
             this.labelControl21.Name = "labelControl21";
-            this.labelControl21.Size = new System.Drawing.Size(43, 13);
+            this.labelControl21.Size = new System.Drawing.Size(83, 13);
             this.labelControl21.TabIndex = 2;
             this.labelControl21.Text = "Κώδικας:";
             // 
             // labelControl23
             // 
-            this.labelControl23.Location = new System.Drawing.Point(32, 27);
+            this.labelControl23.Location = new System.Drawing.Point(15, 27);
             this.labelControl23.Name = "labelControl23";
-            this.labelControl23.Size = new System.Drawing.Size(50, 13);
+            this.labelControl23.Size = new System.Drawing.Size(83, 13);
             this.labelControl23.TabIndex = 0;
             this.labelControl23.Text = "Συνθήκες:";
             // 
@@ -502,7 +512,7 @@ namespace WeatherTracker.Forms
             this.grpAstronomy.Controls.Add(this.labelControl14);
             this.grpAstronomy.Controls.Add(this.lblSunrise);
             this.grpAstronomy.Controls.Add(this.labelControl24);
-            this.grpAstronomy.Location = new System.Drawing.Point(702, 163);
+            this.grpAstronomy.Location = new System.Drawing.Point(738, 171);
             this.grpAstronomy.Name = "grpAstronomy";
             this.grpAstronomy.Size = new System.Drawing.Size(166, 105);
             this.grpAstronomy.TabIndex = 9;
@@ -598,7 +608,7 @@ namespace WeatherTracker.Forms
             this.grpForecast1.Controls.Add(this.labelControl25);
             this.grpForecast1.Controls.Add(this.lblForecast1Date);
             this.grpForecast1.Controls.Add(this.labelControl27);
-            this.grpForecast1.Location = new System.Drawing.Point(498, 274);
+            this.grpForecast1.Location = new System.Drawing.Point(422, 301);
             this.grpForecast1.Name = "grpForecast1";
             this.grpForecast1.Size = new System.Drawing.Size(199, 128);
             this.grpForecast1.TabIndex = 10;
@@ -697,7 +707,7 @@ namespace WeatherTracker.Forms
             this.groupControl1.Controls.Add(this.labelControl37);
             this.groupControl1.Controls.Add(this.lblForecast2Date);
             this.groupControl1.Controls.Add(this.labelControl39);
-            this.groupControl1.Location = new System.Drawing.Point(703, 274);
+            this.groupControl1.Location = new System.Drawing.Point(724, 286);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(202, 128);
             this.groupControl1.TabIndex = 12;
@@ -784,22 +794,6 @@ namespace WeatherTracker.Forms
             this.labelControl39.TabIndex = 0;
             this.labelControl39.Text = "Ημερομηνία:";
             // 
-            // lblTemperature
-            // 
-            this.lblTemperature.Location = new System.Drawing.Point(245, 16);
-            this.lblTemperature.Name = "lblTemperature";
-            this.lblTemperature.Size = new System.Drawing.Size(112, 23);
-            this.lblTemperature.TabIndex = 13;
-            this.lblTemperature.Text = "lblTemperature";
-            // 
-            // xtraTabControl1
-            // 
-            this.xtraTabControl1.Location = new System.Drawing.Point(14, 39);
-            this.xtraTabControl1.Name = "xtraTabControl1";
-            this.xtraTabControl1.SelectedIndex = 0;
-            this.xtraTabControl1.Size = new System.Drawing.Size(369, 486);
-            this.xtraTabControl1.TabIndex = 14;
-            // 
             // labelControl16
             // 
             this.labelControl16.Location = new System.Drawing.Point(54, 146);
@@ -831,6 +825,14 @@ namespace WeatherTracker.Forms
             this.labeControl3.Size = new System.Drawing.Size(93, 14);
             this.labeControl3.TabIndex = 14;
             this.labeControl3.Text = "Αίσθηση ψύχους:";
+            // 
+            // xtraTabControl1
+            // 
+            this.xtraTabControl1.Location = new System.Drawing.Point(14, 39);
+            this.xtraTabControl1.Name = "xtraTabControl1";
+            this.xtraTabControl1.SelectedIndex = 0;
+            this.xtraTabControl1.Size = new System.Drawing.Size(369, 486);
+            this.xtraTabControl1.TabIndex = 14;
             // 
             // fMain
             // 
@@ -864,6 +866,7 @@ namespace WeatherTracker.Forms
             this.grpWind.ResumeLayout(false);
             this.grpAtmosphere.ResumeLayout(false);
             this.grpConditions.ResumeLayout(false);
+            this.grpConditions.PerformLayout();
             this.grpAstronomy.ResumeLayout(false);
             this.grpGeography.ResumeLayout(false);
             this.grpForecast1.ResumeLayout(false);
@@ -953,11 +956,11 @@ namespace WeatherTracker.Forms
         private System.Windows.Forms.Label lblForecast2High;
         private System.Windows.Forms.Label lblForecast2Low;
         private System.Windows.Forms.Label lblForecast2Date;
-        private System.Windows.Forms.Label lblTemperature;
-        private System.Windows.Forms.TabControl xtraTabControl1;
         private System.Windows.Forms.Label lblChill;
         private System.Windows.Forms.Label labeControl3;
         private System.Windows.Forms.Label labelControl3;
         private System.Windows.Forms.Label labelControl16;
+        private System.Windows.Forms.TabControl xtraTabControl1;
+        private System.Windows.Forms.Label lblTemperature;
     }
 }
