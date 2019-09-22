@@ -1,0 +1,260 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="Current">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5C2BFA4E-5EE8-4247-B60F-1CBB19AB2697}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WeatherTracker</RootNamespace>
+    <AssemblyName>WeatherTracker</AssemblyName>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Weather.cs" />
+    <Compile Include="Forms\fAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fAbout.Designer.cs">
+      <DependentUpon>fAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\fMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fMain.Designer.cs">
+      <DependentUpon>fMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\fOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fOptions.Designer.cs">
+      <DependentUpon>fOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\fSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fSplash.Designer.cs">
+      <DependentUpon>fSplash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\fAbout.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>fAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fMain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>fMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fSplash.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>fSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Resources\Image.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\fOptions.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>fOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\mountain.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\app.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app.ico" />
+    <EmbeddedResource Include="Resources\0cloud.png" />
+    <EmbeddedResource Include="Resources\0cloud_fog.png" />
+    <EmbeddedResource Include="Resources\1cloud_fog.png" />
+    <EmbeddedResource Include="Resources\1cloud_heavyrain.png" />
+    <EmbeddedResource Include="Resources\1cloud_lightrain.png" />
+    <EmbeddedResource Include="Resources\1cloud_modrain.png" />
+    <EmbeddedResource Include="Resources\1cloud_norain.png" />
+    <EmbeddedResource Include="Resources\2cloud_fog.png" />
+    <EmbeddedResource Include="Resources\2cloud_hail.png" />
+    <EmbeddedResource Include="Resources\2cloud_heavyrain.png" />
+    <EmbeddedResource Include="Resources\2cloud_lightrain.png" />
+    <EmbeddedResource Include="Resources\2cloud_modrain.png" />
+    <EmbeddedResource Include="Resources\2cloud_norain.png" />
+    <EmbeddedResource Include="Resources\2cloud_snow.png" />
+    <EmbeddedResource Include="Resources\2cloud_thunders.png" />
+    <EmbeddedResource Include="Resources\3cloud_fog.png" />
+    <EmbeddedResource Include="Resources\3cloud_hail.png" />
+    <EmbeddedResource Include="Resources\3cloud_heavyrain.png" />
+    <EmbeddedResource Include="Resources\3cloud_lightrain.png" />
+    <EmbeddedResource Include="Resources\3cloud_modrain.png" />
+    <EmbeddedResource Include="Resources\3cloud_norain.png" />
+    <EmbeddedResource Include="Resources\3cloud_snow.png" />
+    <EmbeddedResource Include="Resources\3cloud_thunders.png" />
+    <EmbeddedResource Include="Resources\4cloud_fog.png" />
+    <EmbeddedResource Include="Resources\4cloud_hail.png" />
+    <EmbeddedResource Include="Resources\4cloud_heavyhail.png" />
+    <EmbeddedResource Include="Resources\4cloud_heavyrain.png" />
+    <EmbeddedResource Include="Resources\4cloud_heavysnow.png" />
+    <EmbeddedResource Include="Resources\4cloud_lighthail.png" />
+    <EmbeddedResource Include="Resources\4cloud_lightrain.png" />
+    <EmbeddedResource Include="Resources\4cloud_lightsnow.png" />
+    <EmbeddedResource Include="Resources\4cloud_modrain.png" />
+    <EmbeddedResource Include="Resources\4cloud_norain.png" />
+    <EmbeddedResource Include="Resources\4cloud_thunders.png" />
+    <EmbeddedResource Include="Resources\4_cloud_modrain.png" />
+    <EmbeddedResource Include="Resources\clouds_nodata.png" />
+    <EmbeddedResource Include="Resources\eee.png" />
+    <EmbeddedResource Include="Resources\ne.png" />
+    <EmbeddedResource Include="Resources\nee.png" />
+    <EmbeddedResource Include="Resources\nne.png" />
+    <EmbeddedResource Include="Resources\nnn.png" />
+    <EmbeddedResource Include="Resources\nnw.png" />
+    <EmbeddedResource Include="Resources\nodir.png" />
+    <EmbeddedResource Include="Resources\nw.png" />
+    <EmbeddedResource Include="Resources\nww.png" />
+    <EmbeddedResource Include="Resources\n_0cloud.png" />
+    <EmbeddedResource Include="Resources\n_0cloud_fog.png" />
+    <EmbeddedResource Include="Resources\n_1cloud_fog.png" />
+    <EmbeddedResource Include="Resources\n_1cloud_heavyrain.png" />
+    <EmbeddedResource Include="Resources\n_1cloud_lightrain.png" />
+    <EmbeddedResource Include="Resources\n_1cloud_modrain.png" />
+    <EmbeddedResource Include="Resources\n_1cloud_norain.png" />
+    <EmbeddedResource Include="Resources\n_2cloud_fog.png" />
+    <EmbeddedResource Include="Resources\n_2cloud_hail.png" />
+    <EmbeddedResource Include="Resources\n_2cloud_heavyrain.png" />
+    <EmbeddedResource Include="Resources\n_2cloud_lightrain.png" />
+    <EmbeddedResource Include="Resources\n_2cloud_modrain.png" />
+    <EmbeddedResource Include="Resources\n_2cloud_norain.png" />
+    <EmbeddedResource Include="Resources\n_2cloud_snow.png" />
+    <EmbeddedResource Include="Resources\n_2cloud_thunders.png" />
+    <EmbeddedResource Include="Resources\n_3cloud_fog.png" />
+    <EmbeddedResource Include="Resources\n_3cloud_hail.png" />
+    <EmbeddedResource Include="Resources\n_3cloud_heavyrain.png" />
+    <EmbeddedResource Include="Resources\n_3cloud_lightrain.png" />
+    <EmbeddedResource Include="Resources\n_3cloud_modrain.png" />
+    <EmbeddedResource Include="Resources\n_3cloud_norain.png" />
+    <EmbeddedResource Include="Resources\n_3cloud_snow.png" />
+    <EmbeddedResource Include="Resources\n_3cloud_thunders.png" />
+    <EmbeddedResource Include="Resources\se.png" />
+    <EmbeddedResource Include="Resources\see.png" />
+    <EmbeddedResource Include="Resources\sse.png" />
+    <EmbeddedResource Include="Resources\sss.png" />
+    <EmbeddedResource Include="Resources\ssw.png" />
+    <EmbeddedResource Include="Resources\sw.png" />
+    <EmbeddedResource Include="Resources\sww.png" />
+    <EmbeddedResource Include="Resources\tempchilled.png" />
+    <EmbeddedResource Include="Resources\temphigh.png" />
+    <EmbeddedResource Include="Resources\templow.png" />
+    <EmbeddedResource Include="Resources\temp_nodata.png" />
+    <EmbeddedResource Include="Resources\vrb.gif" />
+    <EmbeddedResource Include="Resources\vrb.png" />
+    <EmbeddedResource Include="Resources\wind_nodata.png" />
+    <EmbeddedResource Include="Resources\www.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
