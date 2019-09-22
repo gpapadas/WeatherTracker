@@ -25,11 +25,15 @@ namespace WeatherTracker.Forms
         //    WeatherTracker.Classes.Weather.SpeedUnits.KilometersPerHour);
 
         Weather weather = new Weather();
+        //RootObject rootObject = new RootObject();
         
         public fMain() {
             InitializeComponent();
 
-            weather.GetCityWeather("Thessaloniki");
+            RootObject rootObject = weather.GetCityWeather("Thessaloniki");
+
+            string main = rootObject.weatherConditions[0].main;
+            string description = rootObject.weatherConditions[0].description;
 
             //splashScreen.Show();
             Application.DoEvents();

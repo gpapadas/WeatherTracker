@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Classes\Api.cs" />
     <Compile Include="Classes\Weather.cs" />
+    <Compile Include="Classes\WeatherData.cs" />
     <Compile Include="Forms\fAbout.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -16,23 +16,27 @@ namespace WeatherTracker.Classes
         private const string apiKey = Api.API_KEY; // Your API key here
         private const string openWeatherMapUrl = "https://api.openweathermap.org/data/2.5/weather";
 
-        public void GetCityWeather(string city)
+        public Weather() {}
+
+        public RootObject GetCityWeather(string city)
         {
             using (WebClient web = new WebClient())
             {
-                //string url = string.Format("{0}?q={1}&appid={2}&units=metric", openWeatherMapUrl, city, apiKey);
-
                 string url = $"{openWeatherMapUrl}?q={city}&appid={apiKey}&units=metric";
                 
                 var json = web.DownloadString(url);
+                
+                var data = JsonConvert.DeserializeObject<RootObject>(json);
 
-                //var data = JsonConvert.DeserializeObject();
+                if (data.cod == 200)
+                {
+                    return data;
+                }
+                else
+                {
+                    throw new Exception("Status code error!");
+                }
             }
-        }
-
-        public Weather()
-        {
-
         }
 
         ///// <summary>
