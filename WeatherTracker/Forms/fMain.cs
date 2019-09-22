@@ -16,46 +16,47 @@ namespace WeatherTracker.Forms
 {
     public partial class fMain : Form
     {
-        WeatherTracker.Forms.fSplash splashScreen = new WeatherTracker.Forms.fSplash();
-        WeatherTracker.Forms.fAbout aboutScreen = new WeatherTracker.Forms.fAbout();
-        WeatherTracker.Forms.fOptions optionsForm = new WeatherTracker.Forms.fOptions();
-        //WeatherTracker.Classes.Weather weather = new WeatherTracker.Classes.Weather( "GRXX0019", WeatherTracker.Classes.Weather.TemperatureUnits.Celcius );
-        //WeatherTracker.Classes.Units units = new WeatherTracker.Classes.Units(WeatherTracker.Classes.Weather.TemperatureUnits.Celcius,
-        //    WeatherTracker.Classes.Weather.DistanceUnits.Kilometeres, WeatherTracker.Classes.Weather.PressureUnits.Millibars,
-        //    WeatherTracker.Classes.Weather.SpeedUnits.KilometersPerHour);
+        fSplash splashForm = new fSplash();
+
+        fAbout aboutForm = new fAbout();
+
+        //fOptions optionsForm = new fOptions();
 
         RootObject weatherData = new RootObject();
 
-
-        public fMain() {
+        public fMain()
+        {
             InitializeComponent();
 
-            Weather weather = new Weather();
+            splashForm.Show();
 
-            weatherData = weather.GetCityWeather("Thessaloniki");
-
-            UpdateUI();
-
-            //splashScreen.Show();
             Application.DoEvents();
         }
 
         /// <summary>
-        /// Κλείνει την εφαρμογή.
+        /// Closes the app.
         /// </summary>
-        private void ShutDown() {
-            if ( notifyWeather.Visible )
+        private void ShutDown()
+        {
+            if (notifyWeather.Visible)
+            {
                 notifyWeather.Visible = false;
+            }
+
             Application.Exit();
         }
 
         /// <summary>
-        /// Επαναφέρει την fMain.
+        /// Restores fMain.
         /// </summary>
-        private void Restore() {
-            if ( this.WindowState == FormWindowState.Minimized )
-                this.WindowState = FormWindowState.Normal;
-            this.Visible = true;
+        private void Restore()
+        {
+            if (WindowState == FormWindowState.Minimized)
+            {
+                WindowState = FormWindowState.Normal;
+            }
+
+            Visible = true;
         }
 
         /// <summary>
@@ -131,7 +132,8 @@ namespace WeatherTracker.Forms
         //    //lblCurrentTemperature.Text = weather.Condition.Temperature.ToString() + " " + weather.Units.GetTemperatureUnitAbbreviation();
         //}
 
-        private void SetWeatherPicture(string weatherConditionsText) {
+        private void SetWeatherPicture(string weatherConditionsText)
+        {
             if (weatherConditionsText == "Clear") 
             {
                 pictureEditWeatherCondition.Image = new Bitmap(typeof(WeatherTracker.Resources.Image), "0cloud.png");
@@ -150,7 +152,7 @@ namespace WeatherTracker.Forms
             }
         }
         
-        #region sxoliasmena pros to paron
+        #region Currently Commented
         //private void StartBackgroundTaskCurrentDay() {
         //    try {
         //        // execute the background task only if it's not already working
@@ -196,38 +198,52 @@ namespace WeatherTracker.Forms
         //}
         #endregion
 
-        private void tsmiExit_Click( object sender, EventArgs e ) {
-            this.ShutDown();
+        private void tsmiExit_Click( object sender, EventArgs e )
+        {
+            ShutDown();
         }
 
-        private void notifyWeather_MouseDoubleClick( object sender, MouseEventArgs e ) {
-            this.Restore();
+        private void notifyWeather_MouseDoubleClick( object sender, MouseEventArgs e )
+        {
+            Restore();
         }
 
-        private void fMain_FormClosing( object sender, FormClosingEventArgs e ) {
-            if (e.CloseReason == CloseReason.UserClosing) {
+        private void fMain_FormClosing( object sender, FormClosingEventArgs e )
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
                 e.Cancel = true;
-                this.Hide();
+                Hide();
             }
         }
 
-        private void tsmiOpen_Click( object sender, EventArgs e ) {
-            this.Restore();
-            this.Focus();
+        private void tsmiOpen_Click( object sender, EventArgs e )
+        {
+            Restore();
+            Focus();
         }
 
-        private void fMain_Load( object sender, EventArgs e ) {
-            // splash screen work...
+        private void fMain_Load( object sender, EventArgs e )
+        {
+            // Load splash screen first.
             Thread.Sleep(2000);
-            //splashScreen.Close();
-            //this.SetWeatherValues();
+            splashForm.Close();
+
+            // Load data.
+            Weather weather = new Weather();
+
+            weatherData = weather.GetCityWeather("Thessaloniki");
+
+            UpdateUI();
         }
 
-        private void tsmiAbout_Click( object sender, EventArgs e ) {
-            aboutScreen.Show();
+        private void tsmiAbout_Click( object sender, EventArgs e )
+        {
+            aboutForm.Show();
         }
 
-        private void tsmiOptions_Click( object sender, EventArgs e ) {
+        private void tsmiOptions_Click( object sender, EventArgs e )
+        {
             //optionsForm.Show();
         }
      
