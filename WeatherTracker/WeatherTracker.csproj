@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Api.cs" />
     <Compile Include="Classes\Weather.cs" />
     <Compile Include="Forms\fAbout.cs">
       <SubType>Form</SubType>

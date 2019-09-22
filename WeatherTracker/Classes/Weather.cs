@@ -4,6 +4,7 @@ using System.Text;
 using System.Collections;
 using System.Xml;
 using System.Net;
+using Newtonsoft.Json;
 
 namespace WeatherTracker.Classes
 {
@@ -19,9 +20,13 @@ namespace WeatherTracker.Classes
         {
             using (WebClient web = new WebClient())
             {
-                string url = string.Format("{0}?q={1}&appid={2}&units=metric", openWeatherMapUrl, city, apiKey);
+                //string url = string.Format("{0}?q={1}&appid={2}&units=metric", openWeatherMapUrl, city, apiKey);
 
+                string url = $"{openWeatherMapUrl}?q={city}&appid={apiKey}&units=metric";
+                
                 var json = web.DownloadString(url);
+
+                //var data = JsonConvert.DeserializeObject();
             }
         }
 
