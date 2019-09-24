@@ -1,4 +1,9 @@
 # WeatherTracker
-A weather app that will eventually use OpenWeatherMap API.
+A weather app that uses the OpenWeatherMap API.
 
-Currently I am migrating the code from VS 2008 to VS 2019 and from Yahoo! Weather API to OpenWeatherMap API.
+# Background
+I wrote the first version of this app back in 2010 because of my natural interest on weather phenomena and love for coding.
+
+After taking a look at the old code I decided that it was time for a rewrite by using the OpenWeatherMap API.
+
+The UI is going to be redesigned and hopefully look much better than before.
