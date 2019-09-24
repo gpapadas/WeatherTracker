@@ -64,8 +64,13 @@ namespace WeatherTracker.Forms
         /// </summary>
         private void UpdateUI()
         {
-            lblLocation.Text = $"Location: {weatherData.sys.country}, {weatherData.name}";
-            lblTemperature.Text = $"{weatherData.main.temp:#.#}";
+            pbConditionsDescription.Image = new Bitmap(typeof(WeatherTracker.Resources.Image), "0cloud.png");
+            //string condition = weatherData.WeatherConditions[0].Description;
+            lblLocation.Text = $"Location: {weatherData.Sys.Country}, {weatherData.Name}";
+            lblTemperature.Text = $"{weatherData.Main.Temp:#.#} \u00B0C";
+            lblPressure.Text = $"{weatherData.Main.Pressure}hPa";
+            lblWindSpeed.Text = $"{weatherData.Wind.Speed} meter/sec";
+            lblWindDirection.Text = $"{weatherData.Wind.Deg} degrees";
         }
 
         //private void SetWeatherValues() {
@@ -134,22 +139,22 @@ namespace WeatherTracker.Forms
 
         private void SetWeatherPicture(string weatherConditionsText)
         {
-            if (weatherConditionsText == "Clear") 
-            {
-                pictureEditWeatherCondition.Image = new Bitmap(typeof(WeatherTracker.Resources.Image), "0cloud.png");
-            }
-            else if (weatherConditionsText == "Partly Cloudy") 
-            {
-                pictureEditWeatherCondition.Image = new Bitmap(typeof(WeatherTracker.Resources.Image), "1cloud_norain.png");
-            }
-            else if (weatherConditionsText == "Light Rain")
-            {
-                pictureEditWeatherCondition.Image = new Bitmap(typeof(WeatherTracker.Resources.Image), "4cloud_lightrain.png");
-            }
-            else if (weatherConditionsText == "Mostly Cloudy")
-            {
-                pictureEditWeatherCondition.Image = new Bitmap(typeof(WeatherTracker.Resources.Image), "3cloud_norain.png");
-            }
+            //if (weatherConditionsText == "Clear") 
+            //{
+            //    pictureEditWeatherCondition.Image = new Bitmap(typeof(WeatherTracker.Resources.Image), "0cloud.png");
+            //}
+            //else if (weatherConditionsText == "Partly Cloudy") 
+            //{
+            //    pictureEditWeatherCondition.Image = new Bitmap(typeof(WeatherTracker.Resources.Image), "1cloud_norain.png");
+            //}
+            //else if (weatherConditionsText == "Light Rain")
+            //{
+            //    pictureEditWeatherCondition.Image = new Bitmap(typeof(WeatherTracker.Resources.Image), "4cloud_lightrain.png");
+            //}
+            //else if (weatherConditionsText == "Mostly Cloudy")
+            //{
+            //    pictureEditWeatherCondition.Image = new Bitmap(typeof(WeatherTracker.Resources.Image), "3cloud_norain.png");
+            //}
         }
         
         #region Currently Commented
