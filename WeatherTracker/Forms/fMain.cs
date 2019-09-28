@@ -10,19 +10,17 @@ using System.Net;
 using System.Runtime.InteropServices;
 using System.Web;
 using System.IO;
-using WeatherTracker.Classes;
 
 namespace WeatherTracker.Forms
 {
     public partial class fMain : Form
     {
         fSplash splashForm = new fSplash();
-
         fAbout aboutForm = new fAbout();
-
         //fOptions optionsForm = new fOptions();
 
-        RootObject weatherData = new RootObject();
+        //QueryWeather weather = new QueryWeather();
+        WeatherData weatherData = new WeatherData();
 
         public fMain()
         {
@@ -64,13 +62,14 @@ namespace WeatherTracker.Forms
         /// </summary>
         private void UpdateUI()
         {
+            QueryWeather weather = weatherData.GetCityWeather("Thessaloniki");
+
             pbConditionsDescription.Image = new Bitmap(typeof(WeatherTracker.Resources.Image), "0cloud.png");
-            //string condition = weatherData.WeatherConditions[0].Description;
-            lblLocation.Text = $"Location: {weatherData.Sys.Country}, {weatherData.Name}";
-            lblTemperature.Text = $"{weatherData.Main.Temp:#.#} \u00B0C";
-            lblPressure.Text = $"{weatherData.Main.Pressure}hPa";
-            lblWindSpeed.Text = $"{weatherData.Wind.Speed} meter/sec";
-            lblWindDirection.Text = $"{weatherData.Wind.Deg} degrees";
+            lblLocation.Text = $"Location: {weather.Sys.Country}, {weather.Name}";
+            lblTemperature.Text = $"{weather.Main.Temperature.CelsiusCurrent:#.#} \u00B0C";
+            lblPressure.Text = $"{weather.Main.Pressure}hPa";
+            lblWindSpeed.Text = $"{weather.Wind.SpeedMetersPerSecond} meter/sec";
+            lblWindDirection.Text = $"{weather.Wind.Direction} degrees";
         }
 
         //private void SetWeatherValues() {
@@ -233,11 +232,6 @@ namespace WeatherTracker.Forms
             // Load splash screen first.
             Thread.Sleep(2000);
             splashForm.Close();
-
-            // Load data.
-            Weather weather = new Weather();
-
-            weatherData = weather.GetCityWeather("Thessaloniki");
 
             UpdateUI();
         }

@@ -6,85 +6,23 @@ using System.Xml;
 using System.Net;
 using Newtonsoft.Json;
 
-namespace WeatherTracker.Classes
+namespace WeatherTracker
 {
-    public class Weather
+    public class WeatherData
     {
         private const string apiKey = Api.API_KEY; // Your API key here
         private const string openWeatherMapUrl = "https://api.openweathermap.org/data/2.5/weather";
 
-        public Weather() { }
+        public WeatherData() { }
 
-        public RootObject GetCityWeather(string city)
+        public QueryWeather GetCityWeather(string city)
         {
-            using (WebClient web = new WebClient())
-            {
-                string url = $"{openWeatherMapUrl}?q={city}&appid={apiKey}&units=metric";
+            QueryWeather response = new QueryWeather(apiKey, city);
 
-                var json = web.DownloadString(url);
-
-                var data = JsonConvert.DeserializeObject<RootObject>(json);
-
-                if (data.Cod == 200)
-                {
-                    return data;
-                }
-                else
-                {
-                    throw new Exception("Status code error!");
-                }
-            }
+            if (response.ValidRequest)
+                return response;
+            return null;
         }
-
-        /*
-        public void ConvertToMetric()
-        {
-            // c = (f-32)/1.8
-            Condition.Temperature = Convert.ToInt32((Condition.Temperature - 32) / 1.8);
-            // km = mi * 1.609344
-            Atmosphere.Visibility = Convert.ToDecimal(Atmosphere.Visibility * (decimal)1.61);
-            // mb = psi * 68.9475729
-            Atmosphere.Pressure = Convert.ToDouble(Atmosphere.Pressure * (double)68.9475729);
-
-            Wind.Chill = Convert.ToInt32((Wind.Chill - 32) / 1.8);
-            Wind.Speed = Convert.ToInt32(Wind.Speed * 1.609344);
-
-            foreach (ForecastDay fd in Forecast.Days)
-            {
-                fd.Low = Convert.ToInt32((fd.Low - 32) / 1.8);
-                fd.High = Convert.ToInt32((fd.High - 32) / 1.8);
-            }
-
-            Units.Temperature = TemperatureUnits.Celcius;
-            Units.Distance = DistanceUnits.Kilometeres;
-            Units.Pressure = PressureUnits.Millibars;
-            Units.Speed = SpeedUnits.KilometersPerHour;
-        }
-
-        public void ConvertToStandard()
-        {
-            // (f+32)*1.8
-            Condition.Temperature = Convert.ToInt32((Condition.Temperature + 32) * 1.8);
-            // km * 0.621371192 = mi
-            Atmosphere.Visibility = Convert.ToDecimal(Atmosphere.Visibility * (decimal)0.62);
-            // psi = mb * 0.0145037738
-            Atmosphere.Pressure = Convert.ToDouble(Atmosphere.Pressure * (double)0.0145037738);
-
-            Wind.Chill = Convert.ToInt32((Wind.Chill + 32) * 1.8);
-            Wind.Speed = Convert.ToInt32(Wind.Speed * 0.621371192);
-
-            foreach (ForecastDay fd in Forecast.Days)
-            {
-                fd.Low = Convert.ToInt32((fd.Low + 32) * 1.8);
-                fd.High = Convert.ToInt32((fd.High + 32) * 1.8);
-            }
-
-            Units.Temperature = TemperatureUnits.Fahrenheit;
-            Units.Distance = DistanceUnits.Miles;
-            Units.Pressure = PressureUnits.PoundsPerSquareInch;
-            Units.Speed = SpeedUnits.MilesPerHour;
-        }
-        */
 
         ///// <summary>
         ///// Custom date/time parsing function
