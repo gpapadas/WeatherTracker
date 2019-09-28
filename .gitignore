@@ -338,4 +338,4 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
-/WeatherTracker/Classes/Api.cs
+/WeatherTracker/Api.cs

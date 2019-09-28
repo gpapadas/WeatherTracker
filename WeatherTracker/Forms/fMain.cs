@@ -69,7 +69,7 @@ namespace WeatherTracker.Forms
             lblTemperature.Text = $"{weather.Main.Temperature.CelsiusCurrent:#.#} \u00B0C";
             lblPressure.Text = $"{weather.Main.Pressure}hPa";
             lblWindSpeed.Text = $"{weather.Wind.SpeedMetersPerSecond} meter/sec";
-            lblWindDirection.Text = $"{weather.Wind.Direction} degrees";
+            lblWindDirection.Text = $"{weather.Wind.Direction}";
         }
 
         //private void SetWeatherValues() {
